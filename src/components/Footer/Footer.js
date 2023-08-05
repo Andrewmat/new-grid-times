@@ -172,25 +172,18 @@ const TopNavList = styled.ul`
 `;
 
 const MainNavArea = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 32px;
   padding: 32px 0 48px;
   text-align: center;
 
   @media ${QUERIES.tabletAndUp} {
-    flex-direction: row;
-    flex-wrap: wrap;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
     text-align: start;
 
     & > * {
-      flex: 1;
       min-width: 180px;
     }
-    // grid does not work because it allocs empty spaces
-    /* display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 180px), 1fr));
-    text-align: start; */
   }
 `;
 

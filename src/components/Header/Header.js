@@ -29,7 +29,7 @@ const Header = () => {
         </Row>
       </SuperHeader>
       <MainHeader>
-        <ExpandWrapper justify="start">
+        <ContentAreaWrapper>
           <ContentArea>
             <button>
               <Search size={24} />
@@ -38,14 +38,14 @@ const Header = () => {
               <Menu size={24} />
             </button>
           </ContentArea>
-        </ExpandWrapper>
+        </ContentAreaWrapper>
         <Logo />
-        <ExpandWrapper justify="end">
+        <UserAreaWrapper>
           <UserArea>
             <SubscribeButton>Subscribe</SubscribeButton>
             <LoginLink href="#">Already a subscriber?</LoginLink>
           </UserArea>
-        </ExpandWrapper>
+        </UserAreaWrapper>
       </MainHeader>
     </header>
   );
@@ -92,10 +92,17 @@ const MainHeader = styled(MaxWidthWrapper)`
   }
 `;
 
-const ExpandWrapper = styled.div`
+const ContentAreaWrapper = styled.div`
   display: flex;
   flex: 1;
-  justify-content: ${(p) => p.justify};
+  justify-content: start;
+`;
+
+const UserAreaWrapper = styled.div`
+  display: flex;
+  flex: 1;
+  justify-content: end;
+  align-self: end;
 `;
 
 const ContentArea = styled.div`

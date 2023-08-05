@@ -72,14 +72,6 @@ const Wrapper = styled.div`
     }
   }
 
-  /*
-  advertisement
-  @media ${QUERIES.laptopAndUp} {
-    margin-top: 16px;
-    padding-top: 16px;
-    border-top: 1px solid var(--color-gray-300);
-  }
-  */
   @media ${QUERIES.laptopAndUp} {
     grid-template-columns: 6.6fr 5.4fr 4fr;
     grid-template-areas:
@@ -125,6 +117,11 @@ const SecondaryStorySection = styled.section`
 
 const OpinionSection = styled.section`
   grid-area: opinion-stories;
+
+  @media ${QUERIES.laptopAndUp} {
+    // vertical alignment with border
+    margin-top: -8px;
+  }
 `;
 
 const AdvertisementSection = styled.section`

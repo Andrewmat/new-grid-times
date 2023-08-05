@@ -5,30 +5,38 @@ import { QUERIES } from '../../constants';
 const SecondaryStory = ({ id, title, image, location, abstract }) => {
   return (
     <a href={`/story/${id}`}>
-      <Wrapper>
-        <Image alt={image.alt} src={image.src} />
-        <Heading>{title}</Heading>
-        <Abstract>{abstract}</Abstract>
-      </Wrapper>
+      <Container>
+        <Wrapper>
+          <Image alt={image.alt} src={image.src} />
+          <Heading>{title}</Heading>
+          <AbstractWrapper>
+            <Abstract>{abstract}</Abstract>
+          </AbstractWrapper>
+        </Wrapper>
+      </Container>
     </a>
   );
 };
 
+const Container = styled.div`
+  container-type: inline-size;
+`;
+
 const Wrapper = styled.article`
   display: grid;
-  grid-template-areas:
-    'image heading'
-    'image abstract';
   gap: 4px 16px;
-  grid-template-columns: 120px 1fr;
   color: var(--color-gray-900);
+  grid-template-columns: auto;
+  grid-template-areas:
+    'image'
+    'heading'
+    'abstract';
 
-  @media ${QUERIES.tabletOnly} {
-    grid-template-columns: auto;
+  @container (min-width: 40ch) {
     grid-template-areas:
-      'image'
-      'heading'
-      'abstract';
+      'image heading'
+      'image abstract';
+    grid-template-columns: 120px 1fr;
   }
 `;
 
@@ -50,8 +58,11 @@ const Heading = styled.h2`
   margin-top: -2px;
 `;
 
-const Abstract = styled.p`
+const AbstractWrapper = styled.div`
   grid-area: abstract;
+`;
+
+const Abstract = styled.p`
   font-size: 1rem;
   white-space: pre-wrap;
 
